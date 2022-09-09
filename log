@@ -43,3 +43,16 @@ hashmap.c:59:18: error: ‘value’ undeclared (first use in this function)
       |                  ^~~~~
 Compilation failed
 571efed
+Fri 09 Sep 2022 12:44:47 PM UTC: 
+ hashmap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘createMap’:
+hashmap.c:58:8: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘key’
+   58 |     new->key = NULL;
+      |        ^~
+hashmap.c:59:8: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘value’
+   59 |     new->value = NULL;
+      |        ^~
+Compilation failed
+6a690a8

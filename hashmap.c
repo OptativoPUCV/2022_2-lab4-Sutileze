@@ -55,8 +55,8 @@ void enlarge(HashMap * map) {
 HashMap * createMap(long capacity) {
     HashMap * new = (HashMap *)malloc(sizeof(HashMap));
     assert(new != NULL);
-    new->key = key;
-    new->value = value;
+    new->key = NULL;
+    new->value = NULL;
     return new;
 }
 
