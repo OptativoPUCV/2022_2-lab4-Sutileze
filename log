@@ -17,3 +17,9 @@ hashmap.c:7:1: note: ‘assert’ is defined in header ‘<assert.h>’; did you
 cc1: all warnings being treated as errors
 Compilation failed
 ad6de9b
+Fri 09 Sep 2022 12:40:30 PM UTC: 
+ hashmap.c | 1 +
+ 1 file changed, 1 insertion(+)
+ tests:  0|6
+total_score: 0/70
+73cdd50
