@@ -19,7 +19,6 @@ struct HashMap {
 
 Pair * createPair( char * key,  void * value) {
     Pair * new = (Pair *)malloc(sizeof(Pair));
-   assert(new != NULL);
     new->key = key;
     new->value = value;
     return new;
@@ -54,8 +53,11 @@ void enlarge(HashMap * map) {
 
 
 HashMap * createMap(long capacity) {
-
-    return NULL;
+    HashMap * new = (HashMap *)malloc(sizeof(HashMap));
+    assert(new != NULL);
+    new->key = key;
+    new->value = value;
+    return new;
 }
 
 void eraseMap(HashMap * map,  char * key) {    

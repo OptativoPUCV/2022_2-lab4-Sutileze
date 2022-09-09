@@ -23,3 +23,23 @@ Fri 09 Sep 2022 12:40:30 PM UTC:
  tests:  0|6
 total_score: 0/70
 73cdd50
+Fri 09 Sep 2022 12:44:05 PM UTC: 
+ hashmap.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘createMap’:
+hashmap.c:58:8: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘key’
+   58 |     new->key = key;
+      |        ^~
+hashmap.c:58:16: error: ‘key’ undeclared (first use in this function)
+   58 |     new->key = key;
+      |                ^~~
+hashmap.c:58:16: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c:59:8: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘value’
+   59 |     new->value = value;
+      |        ^~
+hashmap.c:59:18: error: ‘value’ undeclared (first use in this function)
+   59 |     new->value = value;
+      |                  ^~~~~
+Compilation failed
+571efed
