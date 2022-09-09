@@ -46,7 +46,7 @@ void insertMap(HashMap * map, char * key, void * value) {
     if(map->buckets[i] == NULL){
     map->buckets[i] = newPair;
     map->size++;
-    map->currrent = i;
+    map->current = i;
     }
     i++;
     if ( i== map->capacity){
@@ -77,9 +77,8 @@ HashMap * createMap(long capacity) {
 }
 
 void eraseMap(HashMap * map,  char * key) {    
-  Pair *pairEliminar = searchMap(map, key); 
+  //Pair *pairEliminar = searchMap(map, key); 
 
-  if(pair)
 
 }
 

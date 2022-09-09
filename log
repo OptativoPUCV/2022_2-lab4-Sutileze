@@ -99,3 +99,19 @@ hashmap.c:80:9: error: unused variable ‘pairEliminar’ [-Werror=unused-variab
 cc1: all warnings being treated as errors
 Compilation failed
 7346dd7
+Fri 09 Sep 2022 01:16:45 PM UTC: 
+ hashmap.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:45:9: error: ‘true’ undeclared (first use in this function)
+   45 |   while(true){
+      |         ^~~~
+hashmap.c:45:9: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c: In function ‘enlarge’:
+hashmap.c:62:13: error: unused variable ‘oldBruckets’ [-Werror=unused-variable]
+   62 |     Pair ** oldBruckets = map->buckets;
+      |             ^~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+36825b6
