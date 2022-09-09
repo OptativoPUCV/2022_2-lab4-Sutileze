@@ -18,6 +18,7 @@ struct HashMap {
 
 Pair * createPair( char * key,  void * value) {
     Pair * new = (Pair *)malloc(sizeof(Pair));
+   assert(new != NULL);
     new->key = key;
     new->value = value;
     return new;

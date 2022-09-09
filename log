@@ -2,3 +2,18 @@ Fri 09 Sep 2022 12:36:58 PM UTC:
  tests:  0|6
 total_score: 0/70
 bca7b4b
+Fri 09 Sep 2022 12:40:15 PM UTC: 
+ hashmap.c | 1 +
+ 1 file changed, 1 insertion(+)
+In file included from test.c:4:
+hashmap.c: In function ‘createPair’:
+hashmap.c:21:4: error: implicit declaration of function ‘assert’ [-Werror=implicit-function-declaration]
+   21 |    assert(new != NULL);
+      |    ^~~~~~
+hashmap.c:7:1: note: ‘assert’ is defined in header ‘<assert.h>’; did you forget to ‘#include <assert.h>’?
+    6 | #include "hashmap.h"
+  +++ |+#include <assert.h>
+    7 | 
+cc1: all warnings being treated as errors
+Compilation failed
+ad6de9b
