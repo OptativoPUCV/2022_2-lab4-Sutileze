@@ -3,7 +3,6 @@
 #include <string.h>
 #include <math.h>
 #include <ctype.h>
-#include <assert.h>
 #include "hashmap.h"
 
 
@@ -41,12 +40,27 @@ int is_equal(void* key1, void* key2){
 
 
 void insertMap(HashMap * map, char * key, void * value) {
-
-
+  Pair *newPair = createPair(key, value); 
+  size_t i = hash(key, map->capacity);
+  while(true){
+    if(map->buckets[i] == NULL){
+    map->buckets[i] = newPair;
+    map->size++;
+    map->currrent = i;
+    }
+    i++;
+    if ( i== map->capacity){
+      i = 0;
+    }
+    
+  }
+ 
 }
 
 void enlarge(HashMap * map) {
     enlarge_called = 1; //no borrar (testing purposes)
+    Pair ** oldBruckets = map->buckets;
+  
 
 
 }
@@ -54,14 +68,18 @@ void enlarge(HashMap * map) {
 
 HashMap * createMap(long capacity) {
     HashMap * map = (HashMap *)malloc(sizeof(HashMap));
+  
     map->buckets = (Pair **)malloc(capacity * sizeof(Pair));
     map->capacity = capacity;
     map->current = -1;
+  
     return map;
 }
 
 void eraseMap(HashMap * map,  char * key) {    
+  Pair *pairEliminar = searchMap(map, key); 
 
+  if(pair)
 
 }
 

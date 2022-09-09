@@ -68,3 +68,34 @@ Fri 09 Sep 2022 12:59:19 PM UTC:
  tests:  1|5
 total_score: 10/70
 2c6c77e
+Fri 09 Sep 2022 01:15:57 PM UTC: 
+ hashmap.c | 18 +++++++++++++++++-
+ 1 file changed, 17 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:45:9: error: ‘true’ undeclared (first use in this function)
+   45 |   while(true){
+      |         ^~~~
+hashmap.c:45:9: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c:49:10: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘currrent’; did you mean ‘current’?
+   49 |     map->currrent = i;
+      |          ^~~~~~~~
+      |          current
+hashmap.c: In function ‘enlarge’:
+hashmap.c:62:13: error: unused variable ‘oldBruckets’ [-Werror=unused-variable]
+   62 |     Pair ** oldBruckets = map->buckets;
+      |             ^~~~~~~~~~~
+hashmap.c: In function ‘eraseMap’:
+hashmap.c:82:6: error: ‘pair’ undeclared (first use in this function); did you mean ‘Pair’?
+   82 |   if(pair)
+      |      ^~~~
+      |      Pair
+hashmap.c:84:1: error: expected expression before ‘}’ token
+   84 | }
+      | ^
+hashmap.c:80:9: error: unused variable ‘pairEliminar’ [-Werror=unused-variable]
+   80 |   Pair *pairEliminar = searchMap(map, key);
+      |         ^~~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+7346dd7
