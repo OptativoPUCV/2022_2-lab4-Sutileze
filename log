@@ -350,3 +350,19 @@ hashmap.c:106:26: error: ‘mapa’ undeclared (first use in this function); did
 cc1: all warnings being treated as errors
 Compilation failed
 51a66e7
+Sun 11 Sep 2022 05:45:46 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:44:9: error: ‘true’ undeclared (first use in this function)
+   44 |   while(true){
+      |         ^~~~
+hashmap.c:44:9: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c: In function ‘searchMap’:
+hashmap.c:92:9: error: value computed is not used [-Werror=unused-value]
+   92 |   i ++  % map->capacity;
+      |   ~~~~~~^~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+b43a646
