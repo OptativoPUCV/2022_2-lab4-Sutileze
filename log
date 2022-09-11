@@ -408,3 +408,19 @@ hashmap.c:44:9: error: ‘true’ undeclared (first use in this function)
 hashmap.c:44:9: note: each undeclared identifier is reported only once for each function it appears in
 Compilation failed
 667db3f
+Sun 11 Sep 2022 05:47:27 PM UTC: 
+ hashmap.c | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:44:9: error: ‘true’ undeclared (first use in this function)
+   44 |   while(true){
+      |         ^~~~
+hashmap.c:44:9: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c: In function ‘nextMap’:
+hashmap.c:112:1: error: control reaches end of non-void function [-Werror=return-type]
+  112 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+6d6a9b8
