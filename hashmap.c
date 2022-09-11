@@ -87,9 +87,13 @@ void eraseMap(HashMap * map,  char * key) {
 }
 
 Pair * searchMap(HashMap * map,  char * key) {   
-  //size_t 
-
-  return NULL;
+  size_t i = hash(key, map->capacity);
+  while (!is_equal(key, map->buckets[i]->key)){
+  i + == % map->capacity;
+  if (map->buckets[i] == NULL) return NULL;
+  }
+  map ->curret = i;
+  return map-> buckets[i];
 }
 
 Pair * firstMap(HashMap * map) {
