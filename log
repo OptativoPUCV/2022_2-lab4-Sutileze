@@ -184,3 +184,29 @@ hashmap.c:45:9: error: ‘true’ undeclared (first use in this function)
 hashmap.c:45:9: note: each undeclared identifier is reported only once for each function it appears in
 Compilation failed
 b5bec25
+Sun 11 Sep 2022 04:29:17 PM UTC: 
+ hashmap.c | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:44:9: error: ‘true’ undeclared (first use in this function)
+   44 |   while(true){
+      |         ^~~~
+hashmap.c:44:9: note: each undeclared identifier is reported only once for each function it appears in
+In file included from /nix/store/iwd8ic5hhwdxn5dga0im55g5hjl270cd-glibc-2.33-47-dev/include/string.h:33,
+                 from test.c:3:
+hashmap.c: In function ‘eraseMap’:
+hashmap.c:84:19: error: expected identifier before ‘(’ token
+   84 |     pairEliminar->NULL;
+      |                   ^~~~
+In file included from test.c:4:
+hashmap.c: In function ‘searchMap’:
+hashmap.c:92:3: error: expected identifier or ‘(’ before ‘return’
+   92 |   return NULL;
+      |   ^~~~~~
+hashmap.c:93:1: error: control reaches end of non-void function [-Werror=return-type]
+   93 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+5786576
