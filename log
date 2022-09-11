@@ -381,3 +381,19 @@ hashmap.c:92:3: error: ‘I’ undeclared (first use in this function)
       |   ^
 Compilation failed
 ba525f2
+Sun 11 Sep 2022 05:46:07 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:44:9: error: ‘true’ undeclared (first use in this function)
+   44 |   while(true){
+      |         ^~~~
+hashmap.c:44:9: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c: In function ‘searchMap’:
+hashmap.c:92:5: error: operation on ‘i’ may be undefined [-Werror=sequence-point]
+   92 |   i = i ++  % map->capacity;
+      |   ~~^~~~~~~~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+ba3261c
