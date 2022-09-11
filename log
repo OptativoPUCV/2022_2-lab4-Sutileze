@@ -305,3 +305,27 @@ hashmap.c:92:9: error: value computed is not used [-Werror=unused-value]
 cc1: all warnings being treated as errors
 Compilation failed
 c3dd802
+Sun 11 Sep 2022 05:42:32 PM UTC: 
+ hashmap.c | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:44:9: error: ‘true’ undeclared (first use in this function)
+   44 |   while(true){
+      |         ^~~~
+hashmap.c:44:9: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c: In function ‘searchMap’:
+hashmap.c:92:9: error: value computed is not used [-Werror=unused-value]
+   92 |   i ++  % map->capacity;
+      |   ~~~~~~^~~~~~~~~~~~~~~
+hashmap.c: In function ‘nextMap’:
+hashmap.c:107:26: error: ‘mapa’ undeclared (first use in this function); did you mean ‘map’?
+  107 |   for (size_t i = 0; i > mapa->capacity; i++){
+      |                          ^~~~
+      |                          map
+hashmap.c:111:1: error: control reaches end of non-void function [-Werror=return-type]
+  111 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+71a9661
