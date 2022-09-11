@@ -89,7 +89,7 @@ void eraseMap(HashMap * map,  char * key) {    //ya
 Pair * searchMap(HashMap * map,  char * key) {   // ya
   size_t i = hash(key, map->capacity);
   while (!is_equal(key, map->buckets[i]->key)){
-  i ++  % map->capacity;
+  I = i ++  % map->capacity;
   if (map->buckets[i] == NULL) return NULL;
   }
   map ->current = i;

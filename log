@@ -366,3 +366,18 @@ hashmap.c:92:9: error: value computed is not used [-Werror=unused-value]
 cc1: all warnings being treated as errors
 Compilation failed
 b43a646
+Sun 11 Sep 2022 05:45:59 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:44:9: error: ‘true’ undeclared (first use in this function)
+   44 |   while(true){
+      |         ^~~~
+hashmap.c:44:9: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c: In function ‘searchMap’:
+hashmap.c:92:3: error: ‘I’ undeclared (first use in this function)
+   92 |   I = i ++  % map->capacity;
+      |   ^
+Compilation failed
+ba525f2
