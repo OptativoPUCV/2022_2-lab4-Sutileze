@@ -61,12 +61,12 @@ void enlarge(HashMap * map) { // ya
   enlarge_called = 1; //no borrar (testing purposes)
   Pair ** oldBruckets = map->buckets;
   size_t largo = map->capacity;
-  mapa->capacity = mapa->capacity * 2; //dublicar la capacidad
+  map->capacity = map->capacity * 2; //dublicar la capacidad
   map->buckets = (Pair **) calloc(map->capacity, sizeof(Pair *));
   map->size = 0;
   for (size_t i = 0; i < largo ; i++ ){
     if(oldBruckets[i] != NULL){
-      insertMap(map,oldBuckets[i]->key,oldBuckets[i]->value); 
+      insertMap(map,oldBruckets[i]->key,oldBruckets[i]->value); 
     }
   }
 }

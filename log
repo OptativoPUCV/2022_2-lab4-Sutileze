@@ -154,3 +154,22 @@ hashmap.c:94:1: error: control reaches end of non-void function [-Werror=return-
 cc1: all warnings being treated as errors
 Compilation failed
 227dc5b
+Sun 11 Sep 2022 04:21:43 PM UTC: 
+ hashmap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:45:9: error: ‘true’ undeclared (first use in this function)
+   45 |   while(true){
+      |         ^~~~
+hashmap.c:45:9: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c: In function ‘searchMap’:
+hashmap.c:93:5: error: expected identifier or ‘(’ before ‘return’
+   93 |     return NULL;
+      |     ^~~~~~
+hashmap.c:94:1: error: control reaches end of non-void function [-Werror=return-type]
+   94 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+5d54712
