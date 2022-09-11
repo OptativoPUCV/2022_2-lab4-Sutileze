@@ -397,3 +397,14 @@ hashmap.c:92:5: error: operation on ‘i’ may be undefined [-Werror=sequence-p
 cc1: all warnings being treated as errors
 Compilation failed
 ba3261c
+Sun 11 Sep 2022 05:46:39 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:44:9: error: ‘true’ undeclared (first use in this function)
+   44 |   while(true){
+      |         ^~~~
+hashmap.c:44:9: note: each undeclared identifier is reported only once for each function it appears in
+Compilation failed
+667db3f
