@@ -259,3 +259,18 @@ hashmap.c:95:9: error: ‘HashMap’ {aka ‘struct HashMap’} has no member na
       |         current
 Compilation failed
 45d5799
+Sun 11 Sep 2022 04:40:57 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:44:9: error: ‘true’ undeclared (first use in this function)
+   44 |   while(true){
+      |         ^~~~
+hashmap.c:44:9: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c: In function ‘searchMap’:
+hashmap.c:92:7: error: expected expression before ‘==’ token
+   92 |   i + == % map->capacity;
+      |       ^~
+Compilation failed
+48c1ae0

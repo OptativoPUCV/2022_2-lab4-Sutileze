@@ -92,7 +92,7 @@ Pair * searchMap(HashMap * map,  char * key) {
   i + == % map->capacity;
   if (map->buckets[i] == NULL) return NULL;
   }
-  map ->curret = i;
+  map ->current = i;
   return map-> buckets[i];
 }
 
