@@ -44,12 +44,12 @@ void insertMap(HashMap * map, char * key, void * value) {
     size_t i = hash(key,map->capacity);
     float lleno = map->size/map->capacity;
     if (lleno > 0.7) enlarge(map);//duplicar
-    while (map->buckets[i] != NULL && map->buckets[i]->key != NULL)  {
-        i = (i + 1) % map->capacity;
+    while(map->buckets[i]->key != NULL&& map->buckets[i] != NULL )  {
+      i = (i + 1) % map->capacity;
     }
     map->buckets[i] = new;
-    map->current = i;
     map->size++;
+    map->current = i;
 }
 
 void enlarge(HashMap * map) { // ya
