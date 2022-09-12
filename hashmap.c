@@ -48,8 +48,8 @@ void insertMap(HashMap * map, char * key, void * value) {
       i = (i + 1) % map->capacity;
     }
     map->buckets[i] = new;
-    map->size++;
     map->current = i;
+    map->size++;
 }
 
 void enlarge(HashMap * map) { // ya
