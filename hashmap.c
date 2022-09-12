@@ -39,30 +39,31 @@ int is_equal(void* key1, void* key2){
     return 0;
 }
 
-void insertMap(HashMap * map, char * key, void * value) { //ya
-  Pair *newPair = createPair(key, value); 
-  size_t i = hash(key, map->capacity);
-  while(true){
-    if(map->buckets[i] == NULL){
-      map->buckets[i] = newPair;
-      map->size++;
-      map->current = i;
+void insertMap(HashMap * map, char * key, void * value) {
+    Pair *new = createPair(key, value);
+    long i = hash(key, map->capacity);
+    float porcentaje = map->size / map->capacity;
+
+    if (porcentaje > 0.7) {
+        enlarge(map);
     }
-    i++;
-    if ( i== map->capacity){
-      i = 0;
+
+    while (map->buckets[i] != NULL && map->buckets[i]->key != NULL)  {
+        i = (i + 1) % map->capacity;
     }
-  }
+    map->buckets[i] = new;
+    map->current = i;
+    map->size++;
 }
 
 void enlarge(HashMap * map) { // ya
   enlarge_called = 1; //no borrar (testing purposes)
   Pair **oldBruckets = map->buckets;
   size_t largo = map->capacity;
-  map->capacity *=2 //dublicar la capacidad
-  map->buckets = (Pair **) calloc(map->capacity, sizeof(Pair *));
+  map->capacity *=2 ;//dublicar la capacidad
+  map->buckets = (Pair **)calloc(map->capacity,sizeof(Pair *));
   map->size = 0;
-  for (size_t i = 0; i < largo ; i++ ){
+  for(size_t i = 0; i < largo;i++){
     if(oldBruckets[i] != NULL){
       insertMap(map,oldBruckets[i]->key,oldBruckets[i]->value); 
     }
@@ -98,8 +99,8 @@ Pair * searchMap(HashMap * map,  char * key) {   // ya
 
 Pair * firstMap(HashMap * map) {
   if(map->size == 0)return NULL;
-  for (size_t i = 0; i < map->capacity; i++){
-    if (map->buckets[i] != NULL && map->buckets[i]->key !=NULL){
+  for(size_t i = 0; i < map->capacity; i++){
+    if(map->buckets[i] != NULL && map->buckets[i]->key !=NULL){
       map->current = i;
       return map->buckets[i];
     }
@@ -110,7 +111,7 @@ Pair * firstMap(HashMap * map) {
 Pair * nextMap(HashMap * map) {
   if(map->size == 0)return NULL;
   for(size_t i = map->current + 1; i < map->capacity; i++){
-    if (map->buckets[i] !=NULL && map->buckets[i]->key != NULL){
+    if(map->buckets[i] !=NULL && map->buckets[i]->key != NULL){
       map->current = i;
       return map->buckets[i]; 
     } 
