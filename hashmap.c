@@ -3,6 +3,7 @@
 #include <string.h>
 #include <math.h>
 #include <ctype.h>
+#include <stdbool.h>
 #include "hashmap.h"
 
 
@@ -43,9 +44,9 @@ void insertMap(HashMap * map, char * key, void * value) { //ya
   size_t i = hash(key, map->capacity);
   while(true){
     if(map->buckets[i] == NULL){
-    map->buckets[i] = newPair;
-    map->size++;
-    map->current = i;
+      map->buckets[i] = newPair;
+      map->size++;
+      map->current = i;
     }
     i++;
     if ( i== map->capacity){
@@ -70,11 +71,10 @@ void enlarge(HashMap * map) { // ya
  
 HashMap * createMap(long capacity) { //ya
     HashMap * map = (HashMap *)malloc(sizeof(HashMap));
-  
-    map->buckets = (Pair **)malloc(capacity * sizeof(Pair));
+    map->buckets = (Pair **)calloc(capacity,sizeof(Pair*));
     map->capacity = capacity;
     map->current = -1;
-  
+    map->size = 0
     return map;
 }
 
@@ -88,16 +88,16 @@ void eraseMap(HashMap * map,  char * key) {    //ya
 
 Pair * searchMap(HashMap * map,  char * key) {   // ya
   size_t i = hash(key, map->capacity);
-  while (!is_equal(key, map->buckets[i]->key)){
-  i = (i +1) % map->capacity;
+  while(!is_equal(key, map->buckets[i]->key)){
+  i = (i+1)% map->capacity;
   if (map->buckets[i] == NULL) return NULL;
   }
-  map ->current = i;
-  return map-> buckets[i];
+  map->current = i;
+  return map->buckets[i];
 }
 
 Pair * firstMap(HashMap * map) {
-  if (map->size == 0)return NULL;
+  if(map->size == 0)return NULL;
   for (size_t i = 0; i < map->capacity; i++){
     if (map->buckets[i] != NULL && map->buckets[i]->key !=NULL){
       map->current = i;
@@ -109,7 +109,7 @@ Pair * firstMap(HashMap * map) {
 
 Pair * nextMap(HashMap * map) {
   if (map->size == 0)return NULL;
-  for(size_t i = 0; i > map->current + 1; i++){
+  for(size_t i = map->current + 1; i < map->capacity; i++){
     if (map->buckets[i] !=NULL && map->buckets[i]->key != NULL){
       map->current = i;
       return map->buckets[i]; 
