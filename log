@@ -498,3 +498,16 @@ hashmap.c:79:1: error: control reaches end of non-void function [-Werror=return-
 cc1: all warnings being treated as errors
 Compilation failed
 c3a527b
+Mon 12 Sep 2022 12:11:08 AM UTC: 
+ hashmap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:62:20: error: expected ‘;’ before ‘map’
+   62 |   map->capacity *=2 //dublicar la capacidad
+      |                    ^
+      |                    ;
+   63 |   map->buckets = (Pair **) calloc(map->capacity, sizeof(Pair *));
+      |   ~~~               
+Compilation failed
+51bd7cc

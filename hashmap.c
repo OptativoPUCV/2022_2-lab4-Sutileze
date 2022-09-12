@@ -57,9 +57,9 @@ void insertMap(HashMap * map, char * key, void * value) { //ya
 
 void enlarge(HashMap * map) { // ya
   enlarge_called = 1; //no borrar (testing purposes)
-  Pair ** oldBruckets = map->buckets;
+  Pair **oldBruckets = map->buckets;
   size_t largo = map->capacity;
-  map->capacity = map->capacity * 2; //dublicar la capacidad
+  map->capacity *=2 //dublicar la capacidad
   map->buckets = (Pair **) calloc(map->capacity, sizeof(Pair *));
   map->size = 0;
   for (size_t i = 0; i < largo ; i++ ){
@@ -70,27 +70,27 @@ void enlarge(HashMap * map) { // ya
 }
  
 HashMap * createMap(long capacity) { //ya
-    HashMap * map = (HashMap *)malloc(sizeof(HashMap));
-    map->buckets = (Pair **)calloc(capacity,sizeof(Pair*));
-    map->capacity = capacity;
-    map->current = -1;
-    map->size = 0
-    return map;
+  HashMap *map = (HashMap*)malloc(sizeof(HashMap));
+  map->buckets = (Pair **)calloc(capacity,sizeof(Pair*));
+  map->capacity = capacity;
+  map->current = -1;
+  map->size = 0;
+  return map;
 }
 
 void eraseMap(HashMap * map,  char * key) {    //ya 
   Pair *pairEliminar = searchMap(map, key); 
   if(pairEliminar != NULL){
     pairEliminar->key=NULL;
-    map->size --;
+    map->size--;
   }
 }
 
 Pair * searchMap(HashMap * map,  char * key) {   // ya
   size_t i = hash(key, map->capacity);
   while(!is_equal(key, map->buckets[i]->key)){
-  i = (i+1)% map->capacity;
-  if (map->buckets[i] == NULL) return NULL;
+    i = (i+1)% map->capacity;
+    if (map->buckets[i] == NULL) return NULL;
   }
   map->current = i;
   return map->buckets[i];
@@ -102,13 +102,13 @@ Pair * firstMap(HashMap * map) {
     if (map->buckets[i] != NULL && map->buckets[i]->key !=NULL){
       map->current = i;
       return map->buckets[i];
-     }
+    }
   }
   return NULL;
 }
 
 Pair * nextMap(HashMap * map) {
-  if (map->size == 0)return NULL;
+  if(map->size == 0)return NULL;
   for(size_t i = map->current + 1; i < map->capacity; i++){
     if (map->buckets[i] !=NULL && map->buckets[i]->key != NULL){
       map->current = i;
