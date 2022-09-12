@@ -43,8 +43,10 @@ void insertMap(HashMap * map, char * key, void * value) {
     Pair *new = createPair(key,value);
     size_t i = hash(key,map->capacity);
     float lleno = map->size/map->capacity;
-    if (lleno > 0.7) enlarge(map);//duplicar
-    while(map->buckets[i]->key != NULL&& map->buckets[i] != NULL )  {
+    if (lleno > 0.7){
+      enlarge(map);//duplicar
+    } 
+    while (map->buckets[i] != NULL && map->buckets[i]->key != NULL)  {
       i = (i + 1) % map->capacity;
     }
     map->buckets[i] = new;

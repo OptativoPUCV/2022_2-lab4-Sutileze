@@ -533,3 +533,9 @@ Mon 12 Sep 2022 12:35:52 AM UTC:
  1 file changed, 1 insertion(+), 1 deletion(-)
  tests:  0|0
 b1ebb0c
+Mon 12 Sep 2022 12:37:58 AM UTC: 
+ hashmap.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+ tests:  17|0
+total_score: 70/70
+f4cd36e
